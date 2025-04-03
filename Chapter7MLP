@@ -1,3 +1,25 @@
 MLP def: output of the perceptron connected to the input of other perceptrions. As a kind of feed-forward neural network
-
+MLP structure as follows:
 ![alt text](https://github.com/user-attachments/assets/db40c6ba-e4ab-4f05-b64b-b3a959fed1ef)
+
+MLP procedure for tuning its accuracy:
+1. initialize small random values for weights (w) and bias (theta)
+2. input something to node i (input layer) and calculate the output by the network with the given inputs, 
+remarks: inputs and outputs of input layer also called inputs (forward propagation)
+3. pass through activation functions such as sigmoid functions, to node j (hidden layer), until node k (output layer)
+4. check the error (loss function) by Actual Output - Target Output
+5. update the weights and bias between node j and k (backward propagation)
+6. update the weights and bias between node i and j (b.p.)
+7. begin from step 2 again
+
+When to stop training?
+- once the training error falls below some thresholds
+- after a fixed number of iterations via the loop
+- reach the minimum error of the validation set
+
+Gradient Descent def: we aim at going in the direction of the deepest descent and minimize the loss function by finding the local minimum
+or global minimum
+
+Pros: 
+1. No need to find closed form math solution
+2. Computationally faster and cheaper
