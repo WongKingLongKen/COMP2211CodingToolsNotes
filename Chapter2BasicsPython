@@ -41,20 +41,59 @@ access private instance variable from outside a class: it's just a convention to
 e.g.
 ```
 class Person:
-  def __init__(self): # constructor: initialize instance variable
-    self.__name = "Ken" # __name: instance variable that belongs to an object
-    self.height = height
+  def __init__(self, name="Ken", height=180): # constructor: initialize instance variable
+    self.__name = name # __name: instance variable that belongs to an object
+    self.__height = height
   def meters_height(self): # meters_height: method that has no value itself
-    return self.height / 100
+    return self.__height / 100
+  def print(self):
+    print("Name: " + self.__name)
+    print("Height: " + self.__height)
 
-P = Person()
+P = Person()                                  
 P._Person__name = "Tim"
 print(P._Person__name) # output: Tim
+
+# Error
+tim = Person("Tim", 185)
+print("Name: " + self.__name)
+print("Height: " + self.height)
+
+# Better way
+tim.__name = "Tim"
+tim.__height = 185
+tim.print()
 ```
+Why tim.__name Fails
+Direct Access Attempt:
+When you try print(tim.__name), Python looks for an attribute named __name in the instance.
 
+But __name has been renamed to _Person__name due to name mangling.
 
+Result: AttributeError (no __name attribute exists).
 
+Assignment tim.__name = 'Tim':
+This does not modify the original private variable (_Person__name). Instead:
 
+A new public attribute __name is created on the instance.
+
+The original _Person__name remains unchanged (as seen in tim.print()).
+
+The best way is to create accessors and mutators:
+```
+# we need to add those as follows
+def get_name(self):
+  return self.__name
+def get_height(self):
+  return self.__height
+def set_name(self, name):
+  self.__name = name
+def set_height(self, height):
+  self.__height = height
+
+print("Name: " + tim.get_name())
+tim.set_height(185)
+```
 
 In Python, for an expression:
  
