@@ -1,0 +1,28 @@
+As mentioned, we can simplify Bayes’ rule by making these two simple assumptions:
+The features (or Evidence) related to a belief are independent from one another.
+Each piece of evidence has the same importance in determining the outcome.
+ 
+Remember, the Naïve Bayes rule is defined as follows.
+ 
+P(Bi | E) = P(Bi) P(e1|Bi) P(e2|Bi) P(e3|Bi) … P(ed|Bi) / [ ( P(e1|B1) P(e2|B1)P(e3|B1)… P(ed|B1)P(B1) ) + … + ( P(e1|Bn) P(e2|Bn)P(e3|Bn)… P(ed|Bn)P(Bn) ) ]
+Remark: We have n pieces of belief, and d pieces of evidence
+ 
+Referring to the Problem of suffering from disease Z, if you apply the Naïve Bayes rule, we get the following.
+ 
+Question: Estimate if a person has disease Z based on their symptoms
+(Blood Pressure = high, Fever = no, Diabetes = yes, and Vomit = yes)
+Solution:
+Compute P( Disease Z = Yes | (Blood Pressure = high, Fever = no, Diabetes = yes, and Vomit = yes) )
+P( Disease Z = Yes ) P( Blood Pressure = high | Disease Z = Yes ) P( Fever = no | Disease Z = Yes ) P( Diabetes = yes | Disease Z = Yes ) P( Vomit = yes | Disease Z = Yes ) /
+[ ( P( Disease Z = Yes ) P( Blood Pressure = high | Disease Z = Yes ) P( Fever = no | Disease Z = Yes ) P( Diabetes = yes | Disease Z = Yes ) P( Vomit = yes | Disease Z = Yes ) ) +
+  ( P( Disease Z = No ) P( Blood Pressure = high | Disease Z = No ) P( Fever = no | Disease Z = No ) P( Diabetes = yes | Disease Z = No ) P( Vomit = yes | Disease Z = No )  ) ]
+ 
+Compute P( Disease Z = No | (Blood Pressure = high, Fever = no, Diabetes = yes, and Vomit = yes) )
+P( Disease Z = No ) P( Blood Pressure = high | Disease Z = No ) P( Fever = no | Disease Z = No ) P( Diabetes = yes | Disease Z = No ) P( Vomit = yes | Disease Z = No ) /
+[ ( P( Disease Z = Yes ) P( Blood Pressure = high | Disease Z = Yes ) P( Fever = no | Disease Z = Yes ) P( Diabetes = yes | Disease Z = Yes ) P( Vomit = yes | Disease Z = Yes ) ) +
+  ( P( Disease Z = No ) P( Blood Pressure = high | Disease Z = No ) P( Fever = no | Disease Z = No ) P( Diabetes = yes | Disease Z = No ) P( Vomit = yes | Disease Z = No )  ) ]
+ 
+As you can see, the denominators (shown in red squared brackets) for P( Disease Z = Yes | (Blood Pressure = high, Fever = no, Diabetes = yes, and Vomit = yes) ) and P( Disease Z = No | (Blood Pressure = high, Fever = no, Diabetes = yes, and Vomit = yes) ), are the same. Therefore, to determine if the person has disease Z, we only need to look at the numerators and see which one is larger, i.e.
+ 
+If P( Disease Z = Yes ) P( Blood Pressure = high | Disease Z = Yes ) P( Fever = no | Disease Z = Yes ) P( Diabetes = yes | Disease Z = Yes ) P( Vomit = yes | Disease Z = Yes ) IS GREATER THAN P( Disease Z = No ) P( Blood Pressure = high | Disease Z = No ) P( Fever = no | Disease Z = No ) P( Diabetes = yes | Disease Z = No ) P( Vomit = yes | Disease Z = No ), then the person is likely suffering from disease Z.
+Otherwise, the person is unlikely suffering from disease Z.
