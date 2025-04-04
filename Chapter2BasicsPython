@@ -1,0 +1,30 @@
+List comprehension: concise version of for loop
+e.g.
+```
+num_set = [1, 2, 3, 4, 5]
+even_sq_set = [x ** 2 for each_num in num_set if x%2 == 0]
+print(sq_set)
+```
+
+tuples can be the key of dict but list can't due to its mutability
+```
+d = {(x, x + 1): x for x in range(10)}  # Valid: tuples as keys
+t = (5, 6)
+print(d[t])  # Output: 5 (works because tuples are hashable)
+
+# If you try with a list:
+d = {[x, x + 1]: x for x in range(10)}  # TypeError: unhashable type 'list'
+```
+
+zip(): in case two sets different lengths, depends on the set with fewer items
+e.g.
+```
+set1 = ['boy', 'girl']
+set2 = ['yes', 'yesyes']
+
+for gender, reaction in zip(set1, set2):
+  print(gender, 'represents', reaction)
+
+# boy represents yes
+# girl represents yesyes
+```
