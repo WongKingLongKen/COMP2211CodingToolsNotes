@@ -171,3 +171,9 @@ Default value for “start” is len(A)-1, i.e., 9 – 1 = 8
 So, the expression A[:,-2,-2] is equivalent to A[8,-2,-2]
 The element at index 8 is 9, and the element at index -2 is excluded.
 So, it prints 9.
+Key Takeaway:
+Negative steps reverse traversal direction.
+Negative stop indices count from the end of the array.
+The stop index is exclusive (elements before it are included).
+
+
