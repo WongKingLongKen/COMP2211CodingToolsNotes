@@ -32,9 +32,9 @@ for gender, reaction in zip(set1, set2):
 **parameter name: use it in case we dun know how many keyword arguments are there to pass into the function. The function can get a dict of arguments
 ```
 def print_name_score(**student):
-  print("His name is " + student["name"] + " and his score is " + student["score"])
+  print("His name is " + student["name"] + " and his score is " + str(student["score"]))
 
-print_name_score(name = "Kelvin", score = 87)
+print_name_score(name="Kelvin", score=87)
 ```
 
 access private instance variable from outside a class: it's just a convention to type the private one as __instance_variable. It doesn't mean we can't access it.
@@ -51,3 +51,29 @@ P = Person()
 P._Person__name = "Tim"
 print(P._Person__name) # output: Tim
 ```
+
+
+
+
+
+In Python, for an expression:
+ 
+s[start : stop : step]
+ 
+A negative step size indicates that we are NOT slicing from left to right but from right to left. Hence start index should be larger or equal to the end index. Otherwise, the resulting sequence is empty. Suppose we have an expression:
+ 
+s[::-1]
+The default value for “start” is NOT 0, and “end” is NOT len(s), but start = len(s)-1, and end = -1.
+Note that the start index is still included, and the end index is still excluded from the slice. Because of that, the default end index is -1 and not 0.
+ 
+For example:
+ 
+A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+print(A[:-2:-2])
+ 
+As the step is a negative value, we are slicing from right to left.
+Hence, “start” index should be larger or equal to the “end” index.
+Default value for “start” is len(A)-1, i.e., 9 – 1 = 8
+So, the expression A[:,-2,-2] is equivalent to A[8,-2,-2]
+The element at index 8 is 9, and the element at index -2 is excluded.
+So, it prints 9.
