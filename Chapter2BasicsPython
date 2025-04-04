@@ -1,3 +1,10 @@
+Assignment: modify the new variable based on the original one will also change the original one
+a = np.array([[0, 1], [5, 8]])
+b = a[:, :1]
+print(a[0, 0]) # 0
+b[0, 0] = 100
+print(a[0, 0]) # 100
+
 List comprehension: concise version of for loop
 e.g.
 ```
@@ -95,20 +102,68 @@ print("Name: " + tim.get_name())
 tim.set_height(185)
 ```
 
-In Python, for an expression:
- 
+Class inheritance: define a new class based on existing class
+```
+class Animal:
+
+    name = ""
+    
+    def eat(self):
+        print("I can eat")
+
+# inherit from Animal
+class Dog(Animal):
+    
+    # override eat() method
+    def eat(self):
+        
+        # call the eat() method of the superclass using super()
+        super().eat()
+        
+        print("I like to eat bones")
+
+# create an object of the subclass
+labrador = Dog()
+
+labrador.eat()
+```
+
+Tricks with int indexing
+e.g.
+```
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+b = np.array([0, 2, 1])
+print(a[np.arange(3), b]) # [1 6 8]
+a[np.arange[3], b] += 10
+print(a) 
+"""
+[[11 2 3]
+ [4 5 16]
+ [7 18 9]]
+"""
+```
+
+slicing:
 s[start : stop : step]
  
-A negative step size indicates that we are NOT slicing from left to right but from right to left. Hence start index should be larger or equal to the end index. Otherwise, the resulting sequence is empty. Suppose we have an expression:
+A negative step size indicates that we are NOT slicing from left to right but from right to left. Hence start index should be larger or equal to the end index. 
+Otherwise, the resulting sequence is empty. Suppose we have an expression:
  
 s[::-1]
 The default value for “start” is NOT 0, and “end” is NOT len(s), but start = len(s)-1, and end = -1.
 Note that the start index is still included, and the end index is still excluded from the slice. Because of that, the default end index is -1 and not 0.
- 
+e.g. 
+```
+A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+print(A[::-1]) # print all
+print(A[:-1:]) # print all except 9 (end index) 
+print(A[:-1:-1]) # output: [] since it starts from the right and stop immediately
+```
+
 For example:
  
 A = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
-print(A[:-2:-2])
+print(A[:-2:-2]) or print(A[:-3:-2]) 
  
 As the step is a negative value, we are slicing from right to left.
 Hence, “start” index should be larger or equal to the “end” index.
