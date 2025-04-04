@@ -28,3 +28,26 @@ for gender, reaction in zip(set1, set2):
 # boy represents yes
 # girl represents yesyes
 ```
+
+**parameter name: use it in case we dun know how many keyword arguments are there to pass into the function. The function can get a dict of arguments
+```
+def print_name_score(**student):
+  print("His name is " + student["name"] + " and his score is " + student["score"])
+
+print_name_score(name = "Kelvin", score = 87)
+```
+
+access private instance variable from outside a class: it's just a convention to type the private one as __instance_variable. It doesn't mean we can't access it.
+e.g.
+```
+class Person:
+  def __init__(self): # constructor: initialize instance variable
+    self.__name = "Ken" # __name: instance variable that belongs to an object
+    self.height = height
+  def meters_height(self): # meters_height: method that has no value itself
+    return self.height / 100
+
+P = Person()
+P._Person__name = "Tim"
+print(P._Person__name) # output: Tim
+```
