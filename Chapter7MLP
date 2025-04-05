@@ -23,3 +23,9 @@ or global minimum
 Pros: 
 1. No need to find closed form math solution
 2. Computationally faster and cheaper
+
+It's wrong to say that increasing the number of hidden layers always increases the model performance
+since it may cause overfitting, vanishing gradients, computational complexity, leading to worse generalization.
+
+
+
