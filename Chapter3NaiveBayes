@@ -35,3 +35,8 @@ As you can see, the denominators (shown in red squared brackets) for P( Disease 
  
 If P( Disease Z = Yes ) P( Blood Pressure = high | Disease Z = Yes ) P( Fever = no | Disease Z = Yes ) P( Diabetes = yes | Disease Z = Yes ) P( Vomit = yes | Disease Z = Yes ) IS GREATER THAN P( Disease Z = No ) P( Blood Pressure = high | Disease Z = No ) P( Fever = no | Disease Z = No ) P( Diabetes = yes | Disease Z = No ) P( Vomit = yes | Disease Z = No ), then the person is likely suffering from disease Z.
 Otherwise, the person is unlikely suffering from disease Z.
+
+we are usually asked to predict the value of something using Naive Bayes by P(B_i|E) = P(E|B_i)P(B_i)/P(E) = P(B_i)[P(e1|B_i)...(en|B_i)]
+for example, P(Yes|e1,e2,e3,e4) = P(Yes)P(e1|Yes)P(e2|Yes)P(e3|Yes)P(e4|Yes)
+P(No|e1,e2,e3,e4) = P(No)P(e1|No)P(e2|No)P(e3|No)P(e4|No)
+Compare which prob is larger and do normalization (optional or required to do so)
