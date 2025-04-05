@@ -1,3 +1,12 @@
+labelled dataset def: labels (inputs with correct outputs) inside training dataset 
+
+supervised learning: regression & classification -> learn the mapping
+unsupervised learning: clustering & association -> learn themselves & find a pattern in unlabelled dataset
+* association def: a rule-based machine learning to discover the probability of the co-occurrence of items in a set
+
+P(B|E) = P(B)xP(E|B)/P(E)
+Posterior Prob = Prior Prob x Likelihood / Marginal Prob
+
 As mentioned, we can simplify Bayes’ rule by making these two simple assumptions:
 The features (or Evidence) related to a belief are independent from one another.
 Each piece of evidence has the same importance in determining the outcome.
