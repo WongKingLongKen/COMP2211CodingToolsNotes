@@ -231,3 +231,16 @@ vv = np.tile(v, (3, 1))
  [1 0 2]]
 """
 ```
+
+internal broadcasting:
+e.g.
+A shape 16x6x7
+B shape 16x6
+A*B
+can't becuz it'll be 1x16x6 after prepending B throught internal broadcasting
+C shape 5x6
+D shape 7x7
+can't but it can if D is 1x7
+E shape 2x3
+F shape 2,
+can't but it can if E is 3x2 
