@@ -244,3 +244,29 @@ can't but it can if D is 1x7
 E shape 2x3
 F shape 2,
 can't but it can if E is 3x2 
+
+find memory size of an array:
+e.g.
+```
+print(A.size * A.itemsize)
+```
+
+find indices for non-zero elements:
+e.g. 
+```
+F = np.array([0, 3, 0, 0, 1])
+print(F.nonzero())
+# output: (array([1, 4]),)
+```
+
+remark for randomness:
+use np.random.random((z, x, y))
+
+remark for full/ repeat function:
+e.g. we need to build an array [7, 7, 7, 7]
+```
+L = np.full(4, 7) or L = np.repeat(7, 4)
+```
+
+inverse matrix:
+we use np.linalg.inv(N) where N is a square matrix
