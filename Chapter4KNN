@@ -1,3 +1,11 @@
 K-Nearest Neighbour: can't do pre-computation while Naive Bayes can due to conditional prob, non-parametric algorithm (no assumption)
 captures all classes info of training data and classifies the new data based on similarity
 
+KNN can be accelerated via
+1. efficient data structures, e.g. KD Trees
+Issue: KNN computes distances between a query point and all training points that cost a lot in computations
+Solution: KD Trees organizes training data into a hierarchical tree structure that partitions the feature space, reducing the number of distance calculations
+But in higher dimensions, we can use Ball Trees instead
+2. Parallelization of distance computations
+Issue: Distance calculations are independent but time-consuming for large datasets
+Solution: distribute distance computations across multiple CPU/ GPU cores
