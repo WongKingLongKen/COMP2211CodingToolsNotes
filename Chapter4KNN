@@ -1,0 +1,3 @@
+K-Nearest Neighbour: can't do pre-computation while Naive Bayes can due to conditional prob, non-parametric algorithm (no assumption)
+captures all classes info of training data and classifies the new data based on similarity
+
