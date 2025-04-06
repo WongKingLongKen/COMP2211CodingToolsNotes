@@ -40,3 +40,37 @@ we are usually asked to predict the value of something using Naive Bayes by P(B_
 for example, P(Yes|e1,e2,e3,e4) = P(Yes)P(e1|Yes)P(e2|Yes)P(e3|Yes)P(e4|Yes)
 P(No|e1,e2,e3,e4) = P(No)P(e1|No)P(e2|No)P(e3|No)P(e4|No)
 Compare which prob is larger and do normalization (optional or required to do so)
+
+When we want to know which belief has the highest probability rather than the whole fraction:
+Remove the denominator as B_NB = argmax_B_i P(B_i)(P(e1|B_i)P(e2|B_i)...P(ed|B_i))
+
+Zero frequency def: unable to make a prediction when there's a category in the test dataset that isn't observed in the
+training dataset and is assigned with a 0 probability
+In lab2, we can't use np.unique for a task becuz we'd ignore the category that doesn't show up in the training dataset,
+i.e. we should count the category as 0
+
+Solution to zero-frequency: alpha-Laplacian Smoothing
+P(ej=v_j|B_i=c_i) = [(Count of ej=v_j AND B_i=c_i) + alpha] / [(Count of B_i=c_i) + n*alpha]
+in scikit-learn, we can't set alpha as 0 becuz it's by default 0
+
+Underflow prevention: sometimes multiplying many values from 0 to 1 results in floating point underflow
+solution: take log, B_NB = argmax_B_i (logP(B_i) + summation from n=1 to d logP(en|B_i))
+
+application of Naive Bayes:
+1. real time prediction
+2. multiclass prediction
+3. text classification, e.g. spam filtering and sentiment analysis
+4. recommendation system
+
+Naive Bayes
+pros: easy to implement, high efficiency in computation, predict multi-classes, work well in large size dataset and NLP text classification
+cons: strong assumption about the features to be independent that is not generally wrong in real life, decreased precision value if the dataset size is small,
+biased results if we prefer prediction of probability over classification, zero frequency issue
+
+Naive Bayes computes the posterior probability of a class label given input features (e.g., classifying emails as "spam" or "not spam"). It cannot output continuous values 
+required for regression (e.g., predicting temperature or house prices).
+Regression Task:
+Predict the amount of rainfall (in mm).
+
+Naive Bayes cannot provide a continuous value like 
+12.5mm; it would require discretizing rainfall into categories (e.g., "light," "heavy"), which reduces precision.
