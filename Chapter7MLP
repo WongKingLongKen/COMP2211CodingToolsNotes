@@ -27,5 +27,12 @@ Pros:
 It's wrong to say that increasing the number of hidden layers always increases the model performance
 since it may cause overfitting, vanishing gradients, computational complexity, leading to worse generalization.
 
+Why we shouldn't initialize all the weights of an MLP as zero?
+Poor performance. 
+- all the neurons propagate with the same gradient and biases
+- different neurons learn the same feature
 
+learning rate of an MLP issue:
+too large.) the training will be inconsistent and unstable such that the model may cover too quickly to a sub-optimal solution
+too small.) learn too slowly
 
