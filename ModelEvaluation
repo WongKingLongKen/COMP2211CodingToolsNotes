@@ -1,0 +1,35 @@
+          Predicted Class
+          P    N
+Actual P  TP   FN
+Class  N  FP   TN
+
+Error = (FN + FP) / (TP + FN + FP + TN)
+Accuracy = 1 - Error
+FP means incorrectly predicted negative class as positive
+
+Precision: fraction of positive samples that are actually positive
+= TP / (TP + FP)
+
+Recall: fraction of positive samples that are tested correctly
+= TP / (TP + FN)
+
+F1-score: harmonic mean of precision and recall from 0 to 1
+= 2 * Precision * Recall / (Precision + Recall)
+= 2TP / (2TP + FN + FP)
+
+Micro F1: consider the metrics globally
+Precision = Recall = Micro F1 = Accuracy
+
+Macro F1: summation of F1-scores of the individuals / num of F1-scores
+
+Weighted F1: summation(num of samples in each class * F1-score) / total num of samples
+
+MCC (Matthew's Correlation Coefficient Formula): best single value classification metric to summarize confusion matrix/ error matrix
+= (TN * TP - FN * FP) / sqrt((TP + FP)(TP + FN)(TN + FP)(TN + FN)) between -1 and +1
+e.g. 
+TP = 90
+FP = 4
+TN = 1
+FN = 5
+MCC = 0.14 => the classifier is close to a random guess classifier
+MCC good here: Even though the TP is large, we can identify the ineffectiveness of the classifier in classifying especially the negative samples
