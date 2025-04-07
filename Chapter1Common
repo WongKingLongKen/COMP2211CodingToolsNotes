@@ -1,6 +1,9 @@
 AI: the science and engineering of making intelligent machines, especially intelligent computer programs
 
-deep learning in neural nets in machine learning in AI
+Deep learning in neural nets in machine learning in AI
+
+Machine learning does not require explicit programming of rules; it learns patterns from data. 
+Traditional rule-based systems rely on predefined rules, but ML algorithms infer rules autonomously
 
 John McCarthy is the first guy who coined the term AI in 1956 but not Alan Turing (he's the father of AI tho)
 Arthur Samuel coined the term machine learning
