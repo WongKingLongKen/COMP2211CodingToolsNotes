@@ -74,3 +74,10 @@ Predict the amount of rainfall (in mm).
 
 Naive Bayes cannot provide a continuous value like 
 12.5mm; it would require discretizing rainfall into categories (e.g., "light," "heavy"), which reduces precision.
+
+Why P(ei|B_i) can be found by plugging in x=ei to f(x)?
+Prob = Density * Neighborhood Size
+For a continuous r.v. with density f(x), P(x in B_i) = f(ei) * |B_i| where |B_i| is e.g. length, area of B_i
+Why this approximation fails sometimes?
+1. large B_i, leading to varying f(x)
+2. non-uniform density, f(x) should be roughly constant over B_i
