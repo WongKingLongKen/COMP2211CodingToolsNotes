@@ -45,7 +45,7 @@ When we want to know which belief has the highest probability rather than the wh
 Remove the denominator as B_NB = argmax_B_i P(B_i)(P(e1|B_i)P(e2|B_i)...P(ed|B_i))
 
 Zero frequency def: unable to make a prediction when there's a category in the test dataset that isn't observed in the
-training dataset and is assigned with a 0 probability
+training dataset and is assigned with a 0 probability. We will get zero when the probabilities related to the categories are multiplied together
 In lab2, we can't use np.unique for a task becuz we'd ignore the category that doesn't show up in the training dataset,
 i.e. we should count the category as 0
 
