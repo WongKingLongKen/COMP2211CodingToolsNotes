@@ -9,3 +9,18 @@ But in higher dimensions, we can use Ball Trees instead
 2. Parallelization of distance computations
 Issue: Distance calculations are independent but time-consuming for large datasets
 Solution: distribute distance computations across multiple CPU/ GPU cores
+
+Criteria for d fold cross validation: example
+The training data has 8 samples with uneven class distribution:
+Class A: 2 samples ("101110", "100011")
+Class B: 5 samples ("110100", "011100", "000101", "011111", "101101")
+Class C: 1 sample ("010000")
+
+Issue: If you split this into folds (e.g., 5-fold CV), some folds may:
+Exclude Class C entirely (only 1 sample → likely missing in some folds).
+Skew Class A representation (e.g., a fold might get 0 or 1 sample of A).
+
+Reason why the training data not suitable for performing d fold:
+No, unless the number of folds is equal to the number of training data points. The
+above training data set is umbalanced. Hence, if we split the above training data set, the
+data used for training may not have samples with class labels A or C.
