@@ -50,6 +50,7 @@ In lab2, we can't use np.unique for a task becuz we'd ignore the category that d
 i.e. we should count the category as 0
 
 Solution to zero-frequency: alpha-Laplacian Smoothing
+Add +1 to every feature-class count (even unseen combinations). Ensures no zero probabilities
 P(ej=v_j|B_i=c_i) = [(Count of ej=v_j AND B_i=c_i) + alpha] / [(Count of B_i=c_i) + n*alpha]
 in scikit-learn, we can't set alpha as 0 becuz it's by default 0
 
