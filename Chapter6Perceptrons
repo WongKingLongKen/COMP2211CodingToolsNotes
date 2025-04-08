@@ -1,0 +1,9 @@
+
+
+Perceptron assumes linear separability. Without knowledge of data distributions (and potential non-separability), perceptron may fail. Methods like logistic regression or SVM are safer.
+
+A perceptron with the unit step function outputs binary labels (0/1). Multi-class classification requires outputs for multiple classes (e.g., softmax activation).
+
+Gradient descent can get stuck in local minima, especially in non-convex loss landscapes (common in neural networks).
+
+Backpropagation’s solution depends on initial weights. Different initializations may lead to different local minima.
