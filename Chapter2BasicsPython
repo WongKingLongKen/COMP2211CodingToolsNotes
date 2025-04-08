@@ -270,3 +270,16 @@ L = np.full(4, 7) or L = np.repeat(7, 4)
 
 inverse matrix:
 we use np.linalg.inv(N) where N is a square matrix
+
+2022F MT Q2aiii
+```
+print(B[:, 1, 3:0:-1])
+# if there's a fixed int idx, e.g. '1', reduce the shape from (2, 3, 4) to (2, 4)
+
+print(B[B%4==0]
+# reshape from 3D to 1D
+
+print(B.reshape(3, 4, 2))
+# original array shape (2, 3, 4)
+# flatten original array into 1D and remember the mapping of every element is by linearity but not dimensionality,i.e. reshape fills all dimensions sequentially, starting from the innermost (last axis).
+```
