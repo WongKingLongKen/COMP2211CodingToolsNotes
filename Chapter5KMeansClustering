@@ -1,1 +1,8 @@
+KMC (unsupervised learning) is good for its low cost (no labeling) and finding features before categorization
+
+
+
 K-means clustering is guaranteed to converge to a local minimum by iteratively minimizing the intra-cluster variance
+
+In K-Means clustering, using Manhattan distance instead of Euclidean distance can produce better results, 
+especially when dealing with sparse high-dimensional data or when outliers are present.
