@@ -1,6 +1,11 @@
 K-Nearest Neighbour: can't do pre-computation while Naive Bayes can due to conditional prob, non-parametric algorithm (no assumption)
 captures all classes info of training data and classifies the new data based on similarity
 
+Training Phase: K-Nearest Neighbors (KNN) is a lazy learner, meaning it does not build an explicit model during training. 
+Training involves simply storing the dataset in memory. There is no optimization, parameter tuning, or complex computation. 
+Application/Prediction Phase: For each prediction, KNN calculates distances between the test sample and every training sample to find the 
+k nearest neighbors.
+
 KNN can be accelerated via
 1. efficient data structures, e.g. KD Trees
 Issue: KNN computes distances between a query point and all training points that cost a lot in computations
@@ -24,3 +29,6 @@ Reason why the training data not suitable for performing d fold:
 No, unless the number of folds is equal to the number of training data points. The
 above training data set is umbalanced. Hence, if we split the above training data set, the
 data used for training may not have samples with class labels A or C.
+
+KNN can be used for regression by averaging the nearest neighbors' value
+
