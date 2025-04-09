@@ -1,6 +1,17 @@
 KMC (unsupervised learning) is good for its low cost (no labeling) and finding features before categorization but mean has to be defined
 and K has to be specified
 
+2023S midterm Q5c: Critical limitation for KMC
+Clustering is an unsupervised learning method where 'the number of clusters (K) is unknown' and must be determined by e.g.
+Elbow method:
+Plots the sum of squared distances (inertia) from each point to its assigned cluster center for different values of k.
+Identifies the "elbow point" where adding more clusters does not significantly reduce inertia, suggesting diminishing returns.
+Subjective and may not always yield the optimal k
+Silhouette method:
+Measures how similar a data point is to its own cluster compared to other clusters.
+Calculates the average silhouette score for each k, with higher scores indicating better-defined clusters.
+Provides a more objective measure of clustering quality
+
 KMC steps:
 1. choose random K data points (seeds) to be the initial centroids (cluster centres)
 2. calculate the distance between each centroid and training data points, e.g. most likely Euclidean, cosine, Manhattan
