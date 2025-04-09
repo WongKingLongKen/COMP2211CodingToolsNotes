@@ -1,8 +1,52 @@
-KMC (unsupervised learning) is good for its low cost (no labeling) and finding features before categorization
+KMC (unsupervised learning) is good for its low cost (no labeling) and finding features before categorization but mean has to be defined
+and K has to be specified
 
-
-
+KMC steps:
+1. choose random K data points (seeds) to be the initial centroids (cluster centres)
+2. calculate the distance between each centroid and training data points, e.g. most likely Euclidean, cosine, Manhattan
+3. assign the data points to the closest centroid 
+4. recompute the centroids based on the current cluster memberships, i.e. use centroid formula to find the new coordinates
+5. repeat the above steps if the convergence criterion isn't met
 K-means clustering is guaranteed to converge to a local minimum by iteratively minimizing the intra-cluster variance
+
+Kmeans stopping criterion:
+- no/ min  reassignment of data points to different clusters
+- no/ min change of clusters
+- min decrease in the SSE between successive iterations
+
+Remark:
+we need to standardize the data with N(0, 1) since every dataset has features with different measurement units
+
+High quality clustering:
+Isolation: maximize inter-clusters distance
+Compactness: minimize intra-clusters distance
+Shape: hyperellipsoid or ellipsoid or hypersphere or sphere
+
+Both K-Means clustering and KNN sensitve to outliers 
 
 In K-Means clustering, using Manhattan distance instead of Euclidean distance can produce better results, 
 especially when dealing with sparse high-dimensional data or when outliers are present.
+
+PCA:
+purpose: by projecting data onto its orthogonal feature subspace, reduce the dimensionality of a data set consisting of many variables correlated 
+with each other, while retaining the variation present in the dataset to the max extent
+implement PCA as noise reduction before Kmeans clustering
+
+Inertia is calculated as the sum of squared distance for each point to it's closest centroid
+
+coding-wise: e.g.
+KMeans runs 3 times, once for each set of initial centroids in init_centroids.
+Selects the result with the lowest inertia (best clustering).
+```
+init_centroids = np.array([  # Shape (3, 3, 2)
+    [[1, 2], [3, 4], [5, 6]],  # Set 1
+    [[7, 8], [9, 10], [11, 12]],  # Set 2
+    [[13, 14], [15, 16], [17, 18]]  # Set 3
+])
+
+model = KMeans(n_clusters=3, init=init_centroids, n_init=3, max_iter=4)
+```
+If you want the algorithm to randomly pick initial centroids for each run, you should not provide a specific init array:
+model = KMeans(n_clusters=3, init='k-means++', n_init=2, max_iter=4)
+
+
