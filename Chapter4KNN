@@ -77,3 +77,10 @@ e.g. = sqrt(((train_age-test_age) / SD_age)^2 + ((train_sal-test_sal) / SD_salar
 Counterexample: K=1, accuracy can be 100%. K increased but the further neighbors with low relevancy (plz dun write 'more' neighbor) are included 
 or just write due to underfitting (the threshold is set too low such that the accuracy can't be increased after a few cycles). More training samples affect
 the class but the result can be the same as K=1 cuz the majority with higher similarity selects the class 
+
+2023S midterm Q3b: comparison on cosine distance and Euclidean distance
+Cosine distance metric considers the direction of the vectors being compared, while the Euclidean distance metric
+takes both direction and magnitude into account. Since the Cosine distance metric is
+less sensitive to variations in magnitude, it is better suited for comparing vectors with
+different scales. Given that this data contains bias in terms of scale, the Cosine distance
+metric is a better choice in this case.
