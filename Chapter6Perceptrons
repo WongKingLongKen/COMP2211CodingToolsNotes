@@ -1,8 +1,13 @@
 
 
-Perceptron assumes linear separability. Without knowledge of data distributions (and potential non-separability), perceptron may fail. Methods like logistic regression or SVM are safer.
+Perceptron assumes linear separability. Without knowledge of data distributions (and potential non-separability), perceptron may fail. 
+Methods like logistic regression or SVM are safer.
 
 A perceptron with the unit step function outputs binary labels (0/1). Multi-class classification requires outputs for multiple classes (e.g., softmax activation).
+
+e.g. In two-class classification problem, we have trained a preceptron model on a linearly separable training set. We got a new labeled data point that is 
+"correctly classified by the model and far away from the decision boundary". The learnt decision boundary will not change even if we add the new point
+to our earlier training set and retrain with the same set of initial weights and biases.
 
 Gradient descent can get stuck in local minima, especially in non-convex loss landscapes (common in neural networks).
 
