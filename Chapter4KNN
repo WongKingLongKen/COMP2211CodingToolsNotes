@@ -9,7 +9,7 @@ k nearest neighbors.
 KNN steps:
 1. Prepare all training and test data
 2. Select K (will mention the initialization of a good value of K later)
-3. Determine using which distance function, e.g. Euclidean, Hamming (for categorical data)
+3. Determine using which distance function, e.g. Euclidean (l2 norm), Hamming (for categorical data), Manhattan (l1 norm)
 4. Compute the distance between the test data and n training samples
 5. Sort (ascend) the distances and take K nearest samples
 6. Assign the test sample based on the majority vote of KNN
