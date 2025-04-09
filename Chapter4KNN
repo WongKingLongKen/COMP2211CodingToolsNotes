@@ -6,6 +6,24 @@ Training involves simply storing the dataset in memory. There is no optimization
 Application/Prediction Phase: For each prediction, KNN calculates distances between the test sample and every training sample to find the 
 k nearest neighbors.
 
+KNN steps:
+1. Prepare all training and test data
+2. Select K (will mention the initialization of a good value of K later)
+3. Determine using which distance function, e.g. Euclidean, Hamming (for categorical data)
+4. Compute the distance between the test data and n training samples
+5. Sort (ascend) the distances and take K nearest samples
+6. Assign the test sample based on the majority vote of KNN
+
+Cosine distance:
+costheta = summation of (x^train_i * x^test_i) / (sqrt(summation of (x^train_i)**2) * sqrt(summation of (x^test_i)**2))
+distance = 1 - costheta
+value from 0 to 2
+
+Good value of K:
+- to break a tie, decrease K by 1 until the tie is broken
+- put more weights for the nearest points than the farther points
+- dun be too large or small
+
 KNN can be accelerated via
 1. efficient data structures, e.g. KD Trees
 Issue: KNN computes distances between a query point and all training points that cost a lot in computations
@@ -15,7 +33,17 @@ But in higher dimensions, we can use Ball Trees instead
 Issue: Distance calculations are independent but time-consuming for large datasets
 Solution: distribute distance computations across multiple CPU/ GPU cores
 
+Cross validation to estimate K:
+1. split the training data into d groups of approximately equal size
+2. hold the first group as validation group
+3. train your classifier on the remaining data
+4. 
+
+Mean Absolute/ Square/ Absolute Percentage Error:
+MAPE = summation of ((actual_i-predicted_i) / actual_i) / num
+
 Criteria for d fold cross validation: example
+```
 The training data has 8 samples with uneven class distribution:
 Class A: 2 samples ("101110", "100011")
 Class B: 5 samples ("110100", "011100", "000101", "011111", "101101")
@@ -29,6 +57,17 @@ Reason why the training data not suitable for performing d fold:
 No, unless the number of folds is equal to the number of training data points. The
 above training data set is umbalanced. Hence, if we split the above training data set, the
 data used for training may not have samples with class labels A or C.
+```
+
+Computational Cost: KNN prediction is expensive for large datasets, as it requires distance calculations for all training points. 
+Cross-validation amplifies this cost (10 folds × multiple K).
+Class Imbalance: Use stratified cross-validation if classes are imbalanced to ensure folds represent class distributions.
+Error Metric: Choose metrics aligned with the task (e.g., F1-score for imbalanced classification, MSE for regression).
+
+Overfitting to Validation Data: Avoid testing too many K values, as this risks overfitting to the validation set.
+Small Datasets: High variance in error estimates can make K-selection unstable. Use techniques like repeated cross-validation.
 
 KNN can be used for regression by averaging the nearest neighbors' value
 
+For standardization, i.e. normalization via Gaussian Distribution, we may use the formula:
+e.g. = sqrt(((train_age-test_age) / SD_age)^2 + ((train_sal-test_sal) / SD_salary)^2)
