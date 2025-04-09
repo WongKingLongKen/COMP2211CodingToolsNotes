@@ -72,3 +72,8 @@ KNN can be used for regression by averaging the nearest neighbors' value
 
 For standardization, i.e. normalization via Gaussian Distribution, we may use the formula:
 e.g. = sqrt(((train_age-test_age) / SD_age)^2 + ((train_sal-test_sal) / SD_salary)^2)
+
+2022S midterm Q4bii: classification accuracy may not increase if K is increasing 
+Counterexample: K=1, accuracy can be 100%. K increased but the further neighbors with low relevancy (plz dun write 'more' neighbor) are included 
+or just write due to underfitting (the threshold is set too low such that the accuracy can't be increased after a few cycles). More training samples affect
+the class but the result can be the same as K=1 cuz the majority with higher similarity selects the class 
