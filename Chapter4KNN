@@ -34,10 +34,11 @@ Issue: Distance calculations are independent but time-consuming for large datase
 Solution: distribute distance computations across multiple CPU/ GPU cores
 
 Cross validation to estimate K:
-1. split the training data into d groups of approximately equal size
+1. split the training data into K groups of approximately equal size
 2. hold the first group as validation group
 3. train your classifier on the remaining data
-4. 
+4. repeat the steps above with each value of K
+5. find the average error across validation sets and choose the smallest error
 
 Mean Absolute/ Square/ Absolute Percentage Error:
 MAPE = summation of ((actual_i-predicted_i) / actual_i) / num
