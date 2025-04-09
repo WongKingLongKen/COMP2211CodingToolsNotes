@@ -1,11 +1,27 @@
+Artificial Neuron Network: powerful ai and machine learning algo; a universal function approximator that transforms inputs into outputs
 
+the perceptron is an algorithm for supervised learning of binary classifiers, output = f(w1x_1+w2_x_2+theta)
 
 Perceptron assumes linear separability. Without knowledge of data distributions (and potential non-separability), perceptron may fail. 
 Methods like logistic regression or SVM are safer.
 
-A perceptron with the unit step function outputs binary labels (0/1). Multi-class classification requires outputs for multiple classes (e.g., softmax activation).
+A perceptron with the unit step function outputs binary labels (0/1). Multi-class classification requires outputs for multiple classes 
+(e.g., softmax activation).
 
-e.g. In two-class classification problem, we have trained a preceptron model on a linearly separable training set. We got a new labeled data point that is 
+Stopping rules:
+- max training time
+- max num of training cycles allowed
+- min specific accuracy attained
+
+learning def: update the weights in the perceptron (a process)
+epoch def: one cycle through the whole training dataset 
+
+Perceptron dun have control of the line to separate the decision boundary of two sets of training data points accurately
+Solution: use Structural Equation Modelling
+
+Perceptron can't implement XOR cuz the labels in XOR are not linearly separable
+
+e.g. In two-class classification problem, we have trained a perceptron model on a linearly separable training set. We got a new labeled data point that is 
 "correctly classified by the model and far away from the decision boundary". The learnt decision boundary will not change even if we add the new point
 to our earlier training set and retrain with the same set of initial weights and biases.
 
