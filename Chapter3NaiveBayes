@@ -44,6 +44,10 @@ Compare which prob is larger and do normalization (optional or required to do so
 When we want to know which belief has the highest probability rather than the whole fraction:
 Remove the denominator as B_NB = argmax_B_i P(B_i)(P(e1|B_i)P(e2|B_i)...P(ed|B_i))
 
+Na ̈ıve Bayes can handle a dataset with missing value. Attributes are handled separately by the algorithm at both model construction time 
+and prediction time. Therefore, the missing attributes can simply be ignored while preparing the model, and also ignored when a
+probability is calculated for a class value.
+
 Zero frequency def: unable to make a prediction when there's a category in the test dataset that isn't observed in the
 training dataset and is assigned with a 0 probability. We will get zero when the probabilities related to the categories are multiplied together
 In lab2, we can't use np.unique for a task becuz we'd ignore the category that doesn't show up in the training dataset,
