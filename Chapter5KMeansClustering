@@ -38,6 +38,8 @@ Both K-Means clustering and KNN sensitve to outliers
 In K-Means clustering, using Manhattan distance instead of Euclidean distance can produce better results, 
 especially when dealing with sparse high-dimensional data or when outliers are present.
 
+K-Means is order-invariant after initialization; centroid updates depend on all points in clusters, not processing order.
+
 PCA:
 purpose: by projecting data onto its orthogonal feature subspace, reduce the dimensionality of a data set consisting of many variables correlated 
 with each other, while retaining the variation present in the dataset to the max extent
