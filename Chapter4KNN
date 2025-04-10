@@ -39,6 +39,7 @@ Cross validation to estimate K:
 3. train your classifier on the remaining data
 4. repeat the steps above with each value of K
 5. find the average error across validation sets and choose the smallest error
+While odd K avoids ties in binary classification, it’s not mandatory (e.g., weighted voting or probabilistic tie-breaking can handle even K).
 
 Mean Absolute/ Square/ Absolute Percentage Error:
 MAPE = summation of ((actual_i-predicted_i) / actual_i) / num
