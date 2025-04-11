@@ -36,6 +36,7 @@ for gender, reaction in zip(set1, set2):
 
 # boy represents yes
 # girl represents yesyes
+# print boy represents yes if set2 contains ['yes'] only
 ```
 
 **parameter name: use it in case we dun know how many keyword arguments are there to pass into the function. The function can get a dict of arguments
