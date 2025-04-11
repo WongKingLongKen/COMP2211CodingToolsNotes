@@ -66,8 +66,8 @@ print(P._Person__name) # output: Tim
 
 # Error
 tim = Person("Tim", 185)
-print("Name: " + self.__name)
-print("Height: " + self.height)
+print("Name: " + tim.__name)
+print("Height: " + tim.height)
 
 # Better way
 tim.__name = "Tim"
