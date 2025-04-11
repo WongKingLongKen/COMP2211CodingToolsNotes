@@ -1,0 +1,12 @@
+Method is called by its name, but it is associated to an object (dependent).
+A method definition always includes ‘self’ as its first parameter.
+A method is implicitly passed to the object on which it is invoked.
+It may or may not return any data.
+A method can operate on the data (instance variables) that is contained by the corresponding class
+
+Function is block of code that is also called by its name. (independent)
+The function can have different parameters or may not have any at all. If any data (parameters) are passed, they are passed explicitly.
+It may or may not return any data.
+Function does not deal with Class and its instance concept.
+
+Implicit data passage doesn't require passage in main operation whilst explicit does
