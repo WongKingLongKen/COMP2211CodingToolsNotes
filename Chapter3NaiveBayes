@@ -69,7 +69,7 @@ application of Naive Bayes:
 
 Naive Bayes
 pros: easy to implement, high efficiency in computation, predict multi-classes, work well in large size dataset and NLP text classification
-cons: strong assumption about the features to be independent that is not generally wrong in real life, decreased precision value if the dataset size is small,
+cons: strong assumption about the features to be independent that is not generally correct in real life, decreased precision value if the dataset size is small,
 biased results if we prefer prediction of probability over classification, zero frequency issue
 
 Naive Bayes computes the posterior probability of a class label given input features (e.g., classifying emails as "spam" or "not spam"). It cannot output continuous values 
