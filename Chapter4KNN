@@ -34,11 +34,12 @@ Issue: Distance calculations are independent but time-consuming for large datase
 Solution: distribute distance computations across multiple CPU/ GPU cores
 
 Cross validation to estimate K:
-1. split the training data into K groups of approximately equal size
+1. split the training data into d folds of approximately equal size
 2. hold the first group as validation group
 3. train your classifier on the remaining data
-4. repeat the steps above with each value of K
-5. find the average error across validation sets and choose the smallest error
+4. repeat on all d folds
+5. repeat the steps above with each value of K
+6. find the average error across validation sets and choose the smallest error
 While odd K avoids ties in binary classification, it’s not mandatory (e.g., weighted voting or probabilistic tie-breaking can handle even K).
 
 Mean Absolute/ Square/ Absolute Percentage Error:
@@ -57,7 +58,7 @@ Skew Class A representation (e.g., a fold might get 0 or 1 sample of A).
 
 Reason why the training data not suitable for performing d fold:
 No, unless the number of folds is equal to the number of training data points. The
-above training data set is umbalanced. Hence, if we split the above training data set, the
+above training data set is imbalanced. Hence, if we split the above training data set, the
 data used for training may not have samples with class labels A or C.
 ```
 
