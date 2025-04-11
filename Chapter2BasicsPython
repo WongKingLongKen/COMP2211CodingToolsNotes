@@ -1,6 +1,6 @@
 1D array: e.g. [1 2 3] shape: (3,)
 
-Assignment: modify the new variable based on the original one will also change the original one
+View: modify the new variable based on the original one will also change the original one (refer tp copy and view file)
 a = np.array([[0, 1], [5, 8]])
 b = a[:, :1]
 print(a[0, 0]) # 0
