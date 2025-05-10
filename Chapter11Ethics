@@ -1,0 +1,22 @@
+def of AI ethics: a set of values, techniques and principles that help to guide the development and use of AI tech with standards of right 
+and wrong.
+
+Five basic principles (Common Grounds):
+Autonomy - human should control AI instead of relying on AI, try to make your own decision, e.g. privacy protection,
+human-in-the-loop (人在環路機器學習是一種在使用AI 的應用程式中結合人類和機器智慧的策略)
+Beneficence - AI benefits most ppl
+Non-maleficence - avoid harmful consequences, e.g. try to make the system robust 
+Justice - diversity, fairness, non-discrimination
+Explicability - transparency and explainability
+
+Those common grounds can come into conflict in practice:
+e.g. With regards to the collection of healthcare data, which 2 principles have a conflict?
+scratch: related to privacy issue and health science
+ans: Autonomy and Beneficence. People should control what private data they choose to share (autonomy). 
+But fewer data may result in poorer performing models, so society at large may not benefit (beneficence).
+
+e.g. How to reduce the chances of introducing an unfair bias in an AI system?
+Ensure the training data used for the model is free from bias.
+Performing regular tests and audits.
+Ensure that the training data includes some samples from minority groups.
+
