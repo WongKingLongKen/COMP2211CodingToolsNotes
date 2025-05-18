@@ -1,0 +1,11 @@
+image preprocssing - process an image s.t the resulting image is more suitable than the original one for a specific application
+
+digital image - 2d grid of intensity value I(x,y)
+
+why use grayscale image (value of each pixel or dot carries intensity info only, 8-bit data 2^8=256)?
+data are smaller and allow us to process the image in a shorter time
+
+affine transformation:
+any transformation that preserves collinearity, parallelism, etc
+translation, scaling, etc are all affine trans.
+
