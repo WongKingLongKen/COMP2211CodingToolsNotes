@@ -1,0 +1,24 @@
+**Explanation of Alpha-Beta Pruning and Search Order:**
+
+Alpha-beta pruning optimizes the minimax algorithm by pruning branches that cannot influence the final decision. While the **minimax value** (the theoretical optimal outcome)
+remains the same regardless of search order, the **efficiency** and **path taken** to reach the optimal move can differ. 
+
+### 1. **Impact of Search Order on Pruning Efficiency**
+   - **Good Ordering**: If the best moves are evaluated first (e.g., left-to-right), alpha-beta pruning can eliminate more branches early, reducing computation time.
+   - **Poor Ordering**: If weaker moves are evaluated first (e.g., right-to-left), fewer branches are pruned, requiring more nodes to be explored.
+
+### 2. **Why the Optimal Move *Should* Remain the Same**
+   - Alpha-beta pruning only skips branches that are provably irrelevant to the final decision. Even if different branches are pruned in different search orders,
+    the algorithm guarantees the **same minimax value** for the root node.
+   - Example:  
+     - **Left-to-Right**: Evaluates strong moves first → prunes weak branches early.  
+     - **Right-to-Left**: Evaluates weak moves first → explores more nodes but still converges to the same optimal value.
+
+### 3. **When the Optimal Move *Appears* to Change**
+   - **Tie-Breaking**: If multiple moves yield the same minimax value, the algorithm may select the first encountered move (e.g., leftmost in left-to-right search, rightmost in right-to-left search). 
+      This is not a change in optimality but a choice between equally good options.
+   - **Implementation Errors**: Incorrect pruning (e.g., due to bugs) might lead to suboptimal moves, but this violates the algorithm's theoretical guarantees.
+
+### 4. **Key Takeaway**
+   - **Correct Alpha-Beta Pruning**: Ensures the same minimax value and optimal move regardless of search order.  
+   - **Search Order Affects Efficiency, Not Correctness**: Better ordering improves speed but does not alter the result.
