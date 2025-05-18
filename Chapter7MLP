@@ -36,7 +36,9 @@ learning rate of an MLP issue:
 too large.) the training will be inconsistent and unstable such that the model may cover too quickly to a sub-optimal solution
 too small.) learn too slowly
 
-ReLu: range [0, inf)
+--------------------------------------------------------------------------------------------------------
+
+ReLu: range [0, inf) | f(x) = max(0, x)
 Most state-of-the-art models use rectified linear units (ReLU) as non-linearity instead of Sigmoid function in a deep neural network. The question is why?
 	1	Non-Linearity: ReLU introduces non-linearity, enabling the network to learn complex patterns without saturating for positive inputs.
 	2	Gradient Efficiency: Unlike sigmoid, ReLU avoids the vanishing gradient problem, allowing efficient backpropagation in deep networks.
@@ -44,15 +46,56 @@ Most state-of-the-art models use rectified linear units (ReLU) as non-linearity 
 
 VS
 
-sigmoid: 
+Sigmoid: f(x) = 1/(1+e^-x) usually in output layer
 The sigmoid function maps input values to a value between 0 and 1, making it useful for binary classification and logistic regression problems.
 
 VS
 
-Softmax:
+Tanh: f(x) = (e^x - e^-x)/(e^x + e^-x)
+graph a bit rigid than sigmoid
+
+VS
+
+Softmax: usually in output layer
 finds its application in multi-class scenarios, where multiple classes are involved, assigning probabilities to each class for 
 comprehensive classification. On the other hand, Sigmoid is tailored for binary classification tasks, focusing on distinguishing between 
-two exclusive outcomes with probability mapping.
+two "exclusive" outcomes (that's why contradicts multilabel) with probability mapping.
+
+**Summary of Activation Functions (Exam Focus):**  
+
+1. **Purpose**:  
+   - Define how weighted inputs are transformed into outputs at each node.  
+   - Critical for network performance and learning capability.  
+
+2. **Hidden Layers**:  
+   - Use **non-linear, differentiable** functions (e.g., ReLU, Tanh) to model complex patterns.  
+   - Typically use the **same activation function across all hidden layers**.  
+
+3. **Output Layer**:  
+   - Activation depends on **task type**:  
+     - Regression: Linear activation.  
+     - Binary Classification: Sigmoid.  
+     - Multiclass Classification: Softmax.  
+
+4. **Key Property**:  
+   - Differentiability enables gradient-based learning (e.g., backpropagation).  
+--------------------------------------------------------------------------------------------------------
+
+**Summary: Determining Hidden Layers and Neurons in Neural Networks**
+
+1. **Hidden Layers**:  
+   - **Linearly separable data**: No hidden layers needed.  
+   - **Low complexity/small features**: Use **1–2 hidden layers**.  
+   - **High dimensionality/large features**: Opt for **3–5 hidden layers**.  
+
+2. **Neurons per Layer**:  
+   - **Range**: Between the size of the input and output layers.  
+   - **Formula**:  
+     \[ \text{Hidden neurons} = \sqrt{\text{Input nodes} \times \text{Output nodes}} \]  
+   - **Pattern**: Gradually decrease neurons in deeper layers to refine feature extraction.  
+
+in what situation do we need more neurons in the hidden layers:
+higher dimensionalities
 
 usually in hidden layers: we use kernel_regularizer to penalize (reduce) the weights that are large causing the model to overfit
 e.g. model.add(Dense(units=128, activation='relu', kernel_regularizer=regularizers.l2(0.002)))
@@ -60,6 +103,9 @@ The key difference between L1 (lasso) and L2 (ridge) regularization techniques i
 to zero, removing some features altogether. In other words, L1 regularization works well for feature selection in case we have a huge number of features.
 Traditional methods like cross-validation and stepwise regression to perform feature selection and handle overfitting work well with a small set 
 of features, but L1 and L2 regularization methods are a great alternative when you’re dealing with a large set of features.
+
+weights control the steepness of the activation function
+bias is used for shifting the activation function towards the left or right (transformation)
 
 tensorboard: use it when the weights are not updated due to vanishing or exploding gradients
 a visualization tool that enables us to track metrics like loss and accuracy, visualze the model graph
