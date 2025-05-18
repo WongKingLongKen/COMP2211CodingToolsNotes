@@ -36,3 +36,31 @@ learning rate of an MLP issue:
 too large.) the training will be inconsistent and unstable such that the model may cover too quickly to a sub-optimal solution
 too small.) learn too slowly
 
+ReLu: range [0, inf)
+Most state-of-the-art models use rectified linear units (ReLU) as non-linearity instead of Sigmoid function in a deep neural network. The question is why?
+	1	Non-Linearity: ReLU introduces non-linearity, enabling the network to learn complex patterns without saturating for positive inputs.
+	2	Gradient Efficiency: Unlike sigmoid, ReLU avoids the vanishing gradient problem, allowing efficient backpropagation in deep networks.
+	3	Computational Simplicity: ReLU is computationally efficient due to its simple thresholding operation.
+
+VS
+
+sigmoid: 
+The sigmoid function maps input values to a value between 0 and 1, making it useful for binary classification and logistic regression problems.
+
+VS
+
+Softmax:
+finds its application in multi-class scenarios, where multiple classes are involved, assigning probabilities to each class for 
+comprehensive classification. On the other hand, Sigmoid is tailored for binary classification tasks, focusing on distinguishing between 
+two exclusive outcomes with probability mapping.
+
+usually in hidden layers: we use kernel_regularizer to penalize (reduce) the weights that are large causing the model to overfit
+e.g. model.add(Dense(units=128, activation='relu', kernel_regularizer=regularizers.l2(0.002)))
+The key difference between L1 (lasso) and L2 (ridge) regularization techniques is that lasso regression shrinks the less important feature’s coefficient 
+to zero, removing some features altogether. In other words, L1 regularization works well for feature selection in case we have a huge number of features.
+Traditional methods like cross-validation and stepwise regression to perform feature selection and handle overfitting work well with a small set 
+of features, but L1 and L2 regularization methods are a great alternative when you’re dealing with a large set of features.
+
+tensorboard: use it when the weights are not updated due to vanishing or exploding gradients
+a visualization tool that enables us to track metrics like loss and accuracy, visualze the model graph
+
