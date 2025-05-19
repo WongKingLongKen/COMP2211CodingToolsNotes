@@ -1,7 +1,9 @@
 Every pixel in an image is a feature/ input node
 
 Numbers in the kernels are the weights connecting the feature of the input image and the node of the hidden layer
+Each kernel has a corresponding bias term, so the number of biases is equal to the number of kernels.
 
+input depth = no. of filter kernels
 Each filter kernel in CNN is designed to detect specific patterns, e.g. edges, shapes. A vertical edge detector kernel will only respond strongly to vertical edges. 
 If use more kernels, each one can specialise in detecting a different feature, increasing the diversity of extracted patterns. Early layers use kernels to detect 
 low level features like edges or corners, later layers combine the kernels with low level features into higher level features like shapes or objects.
@@ -62,4 +64,7 @@ Fine-tuning more parameters in a neural network becomes necessary in scenarios w
 
 ---
 
-
+Strides:
+larger strides lead to lesser overlaps that means lower output volume. 
+lesser memory needed for output.
+avoids overfitting.
