@@ -9,3 +9,112 @@ affine transformation:
 any transformation that preserves collinearity, parallelism, etc
 translation, scaling, etc are all affine trans.
 
+**Key Concepts for Image Processing Kernels (Sharpening, Smoothing, Edge Detection):**
+
+### **1. Sharpening Kernels**  
+- **Purpose**: Enhance edges and details by accentuating high-frequency components.  
+- **Common Kernels**:  
+  - **Laplacian**:  
+    ```  
+    [ 0, -1,  0]  
+    [-1, 4, -1]  
+    [ 0, -1,  0]  
+    ```  
+    - Second-order derivative operator; highlights edges by detecting intensity discontinuities.  
+  - **Unsharp Masking**:  
+    - Technique involving blurring (smoothing), subtracting the blurred image from the original, and adding the result back to enhance edges.  
+
+### **2. Smoothing Kernels**  
+- **Purpose**: Reduce noise and blur details.  
+- **Common Kernels**:  
+  - **Mean/Average Filter**:  
+    ```  
+    [1/9, 1/9, 1/9]  
+    [1/9, 1/9, 1/9]  
+    [1/9, 1/9, 1/9]  
+    ```  
+    - Replaces each pixel with the average of its neighbors.  
+  - **Gaussian Filter**:  
+    ```  
+    [1/16, 2/16, 1/16]  
+    [2/16, 4/16, 2/16]  
+    [1/16, 2/16, 1/16]  
+    ```  
+    - Weighted average based on Gaussian distribution; better preserves edges compared to mean filter.  
+
+### **3. Edge Detection Kernels**  
+- **Purpose**: Identify edges by computing intensity gradients.  
+- **Prewitt Operator**:  
+  - **Horizontal Edge Detection**:  
+    ```  
+    [-1, 0, 1]  
+    [-1, 0, 1]  
+    [-1, 0, 1]  
+    ```  
+  - **Vertical Edge Detection**:  
+    ```  
+    [-1, -1, -1]  
+    [ 0,  0,  0]  
+    [ 1,  1,  1]  
+    ```  
+  - Simple gradient approximation; sensitive to noise.  
+
+- **Sobel Operator**:  
+  - **Horizontal Edge Detection**:  
+    ```  
+    [-1, 0, 1]  
+    [-2, 0, 2]  
+    [-1, 0, 1]  
+    ```  
+  - **Vertical Edge Detection**:  
+    ```  
+    [-1, -2, -1]  
+    [ 0,  0,  0]  
+    [ 1,  2,  1]  
+    ```  
+  - Includes Gaussian-like smoothing (weights of 2 in center row/column), reducing noise sensitivity compared to Prewitt.  
+
+---
+
+### **Exam-Oriented Notes**  
+1. **Key Differences**:  
+   - **Sobel vs. Prewitt**: Sobel kernels have weights of 2 in the center row/column for noise reduction.  
+   - **First vs. Second Derivatives**:  
+     - Prewitt/Sobel (first-order) detect edges via gradient magnitude/direction.  
+     - Laplacian (second-order) highlights edges as zero-crossings.  
+
+2. **Normalization**:  
+   - Smoothing kernels (e.g., Gaussian) sum to 1 to preserve brightness.  
+   - Edge detection kernels sum to 0 to emphasize transitions (edges).  
+
+3. **Trade-offs**:  
+   - Sharpening amplifies noise; smoothing loses detail.  
+   - Sobel > Prewitt in noisy environments due to built-in smoothing.  
+
+4. **Common Exam Questions**:  
+   - Apply a kernel to a matrix (e.g., compute convolution result).  
+   - Explain why Sobel is preferred over Prewitt.  
+   - Compare effects of sharpening vs. smoothing.  
+
+---
+
+**Example Edge Magnitude Calculation**:  
+For a pixel and its neighbors, compute horizontal (\(G_x\)) and vertical (\(G_y\)) gradients using Sobel:  
+\[
+\text{Magnitude} = \sqrt{G_x^2 + G_y^2}, \quad \text{Direction} = \arctan\left(\frac{G_y}{G_x}\right).
+\]  
+
+**Visual Summary**:  
+| Kernel Type      | Purpose                          | Key Feature                              |  
+|------------------|----------------------------------|------------------------------------------|  
+| **Sharpening**   | Enhance edges/details            | Laplacian, Unsharp Masking               |  
+| **Smoothing**    | Reduce noise/blur details        | Mean, Gaussian                           |  
+| **Edge Detection** | Identify edges                 | Prewitt (simpler), Sobel (noise-robust) |  
+
+Erosion: "Shrink and clean edges."
+
+Dilation: "Grow and connect gaps."
+
+Opening: "Remove small stuff first (erosion), then restore shape (dilation)."
+
+Closing: "Fill gaps first (dilation), then refine edges (erosion)."
