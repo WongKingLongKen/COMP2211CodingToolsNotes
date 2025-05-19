@@ -170,3 +170,7 @@ Dilation: "Grow and connect gaps."
 Opening: "Remove small stuff first (erosion), then restore shape (dilation)."
 
 Closing: "Fill gaps first (dilation), then refine edges (erosion)."
+
+Otsu’s thresholding method and affine transformations are point-based image operations?
+False, Otsu’s thresholding method is a global image operation that determines a threshold value to separate classes in an image. 
+Affine transformations involve geometric transformations like rotation, scaling, and translation, which are not point-based operations.
