@@ -68,3 +68,20 @@ Strides:
 larger strides lead to lesser overlaps that means lower output volume. 
 lesser memory needed for output.
 avoids overfitting.
+
+CNN VS MLP:
+Flattening in CNNs: While CNNs do include a flattening step, it typically occurs towards the end of the network, just before the fully connected
+(dense) layers. By this point, the convolutional and pooling layers have already extracted and condensed the most important spatial features from 
+the input data. The flattening step is used to transition from the convolutional layers to the dense layers, which are used for classification or 
+regression tasks.
+
+Flattening in MLPs: In an MLP, the input data is flattened right at the beginning. This means that an image, which is inherently a 2D or 3D structure,
+is converted into a 1D vector. This flattening process loses the spatial relationships between pixels, making it harder for the network to learn 
+patterns that depend on the spatial structure of the data.
+
+Spatial Feature Preservation: CNNs preserve spatial relationships through convolutional layers, making them more effective at capturing local 
+patterns and hierarchies in the data.
+Parameter Efficiency: CNNs are more parameter-efficient compared to MLPs for image tasks. The use of kernels in convolutional layers reduces the 
+number of parameters needed compared to fully connected layers in MLPs.
+Hierarchical Learning: CNNs learn features in a hierarchical manner, starting from simple features like edges to more complex patterns, which is 
+well-suited for image data.
