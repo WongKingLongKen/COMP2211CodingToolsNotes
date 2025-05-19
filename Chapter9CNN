@@ -1,0 +1,65 @@
+Every pixel in an image is a feature/ input node
+
+Numbers in the kernels are the weights connecting the feature of the input image and the node of the hidden layer
+
+Each filter kernel in CNN is designed to detect specific patterns, e.g. edges, shapes. A vertical edge detector kernel will only respond strongly to vertical edges. 
+If use more kernels, each one can specialise in detecting a different feature, increasing the diversity of extracted patterns. Early layers use kernels to detect 
+low level features like edges or corners, later layers combine the kernels with low level features into higher level features like shapes or objects.
+
+more sets of kernels put in, more types of features generated
+
+each kernel can have different values since we fine tune them independently (but in fact we dun know the value of the kernels beforehand until CNN)
+
+But implement too many kernels not good:
+each additional kernel requires more floating point operations, taking longer to train and use more GPU/ CPU memory
+
+Extremely deep/ wide network may cause:
+- vanishing gradient (slow learning rate in early layers)
+- exploding gradient (unstable training)
+
+feature map - convolution output
+
+Fine-tuning more parameters in a neural network becomes necessary in scenarios where the model's architecture is modified or scaled to handle increased complexity, larger data dimensions, or more nuanced feature extraction.
+
+---
+
+### **When Do We Need to Fine-Tune More Parameters?**
+
+| **Factor**                  | **Explanation**                                                                 | **Impact on Parameters**                          | **Effect on Fine-Tuning Time**               |
+|------------------------------|---------------------------------------------------------------------------------|---------------------------------------------------|----------------------------------------------|
+| **More Sets of Kernels**      | Adding more filters (kernels) to convolutional layers.                         | Increases parameters linearly with the number of filters. Each filter has its own weights. | Longer training due to more gradients to compute. |
+| **Bigger Kernel Size**        | Using larger spatial dimensions for kernels (e.g., 5×5 instead of 3×3).        | Increases parameters quadratically (e.g., 25 vs. 9 weights per filter). | Larger kernels require more computations per layer. |
+| **More Input Channels**       | Expanding input depth (e.g., RGB + depth = 4 channels instead of 3).           | Increases parameters in the first convolutional layer (kernels must match input channels). | Proportional increase in parameters and training time. |
+| **Bigger Input Image Size**   | Processing higher-resolution images (e.g., 512×512 instead of 224×224).         | Only affects parameters if the model uses fully connected (FC) layers. FC layers tied to input size (rare in modern architectures). | Minimal impact if the network is fully convolutional (common in CNNs). |
+
+---
+
+### **Key Scenarios Requiring More Fine-Tuning**
+
+1. **Complex Feature Learning**  
+   - **Example**: Object detection in high-resolution medical images.  
+   - **Why**: Larger kernel sizes or more filters help capture fine-grained details (e.g., tumor boundaries).  
+   - **Trade-off**: Increased parameters improve accuracy but require longer training.
+
+2. **Multi-Modal Inputs**  
+   - **Example**: Combining RGB, infrared, and depth channels for autonomous driving.  
+   - **Why**: Additional input channels require wider kernels in the first layer, increasing parameters.  
+
+3. **Architectural Scaling**  
+   - **Example**: Expanding a pre-trained ResNet-18 to ResNet-50 for a specialized task.  
+   - **Why**: Deeper networks with more layers/filters inherently have more parameters to fine-tune.  
+
+4. **Handling High-Resolution Data**  
+   - **Example**: Video processing with 4K frames.  
+   - **Why**: If the model includes FC layers, input size directly impacts parameter count.  
+
+---
+
+### **Mitigation Strategies for Efficiency**
+- **Transfer Learning**: Start with pre-trained weights to reduce training time.  
+- **Global Average Pooling**: Replace FC layers with pooling to decouple parameter count from input size.  
+- **Depthwise Separable Convolutions**: Reduce parameters while maintaining performance (e.g., MobileNet).  
+
+---
+
+
