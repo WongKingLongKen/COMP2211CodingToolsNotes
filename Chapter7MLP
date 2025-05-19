@@ -43,6 +43,9 @@ Most state-of-the-art models use rectified linear units (ReLU) as non-linearity 
 	1	Non-Linearity: ReLU introduces non-linearity, enabling the network to learn complex patterns without saturating for positive inputs.
 	2	Gradient Efficiency: Unlike sigmoid, ReLU avoids the vanishing gradient problem, allowing efficient backpropagation in deep networks.
 	3	Computational Simplicity: ReLU is computationally efficient due to its simple thresholding operation.
+Suppose we are dealing with binary classification tasks using MLP. Explain
+why it is inappropriate to use ReLU as the activation function in the output layer.
+We cannot determine the cut-off threshold to distinguish between the output classes when there is an unbounded output range.
 
 VS
 
@@ -109,4 +112,15 @@ bias is used for shifting the activation function towards the left or right (tra
 
 tensorboard: use it when the weights are not updated due to vanishing or exploding gradients
 a visualization tool that enables us to track metrics like loss and accuracy, visualze the model graph
+
+a way to avoid overfitting in MLP:
+adding regularization (reduce the number of trainable parameters/ layers/ neurons in hidden layers) helps to keep the weight small, s.t.
+it's less likely for the model to have larger variance (be sensitive to noise and fluctuation)
+
+MLP no. of neurons:
+classifications n
+regression 1
+
+22S Final: Validation accuracy must be lower than training accuracy (overfitting)?
+No, there can be underfitting or similar accuracy.
 
