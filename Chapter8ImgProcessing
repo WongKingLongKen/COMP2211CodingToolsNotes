@@ -2,7 +2,7 @@ image preprocssing - process an image s.t the resulting image is more suitable t
 
 digital image - 2d grid of intensity value I(x,y)
 
-why use grayscale image (value of each pixel or dot carries intensity info only, 8-bit data 2^8=256)?
+why use grayscale image (value of each pixel or dot carries intensity info only, 8-bit data 2^8=256, i.e. a range from 0 to 255)?
 data are smaller and allow us to process the image in a shorter time
 
 The **gray channel** (grayscale) in image processing serves a distinct purpose compared to RGB channels, despite being derived from them.
