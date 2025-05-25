@@ -85,3 +85,11 @@ Parameter Efficiency: CNNs are more parameter-efficient compared to MLPs for ima
 number of parameters needed compared to fully connected layers in MLPs.
 Hierarchical Learning: CNNs learn features in a hierarchical manner, starting from simple features like edges to more complex patterns, which is 
 well-suited for image data.
+
+ReLU is more popular for CNN as it doesn't require any expensive computation and has been shown to speed up the convergence of stochastic gradient
+descent algorithms.
+
+Pooling keeps the key information in each feature map thereby reducing noise and aiding in curtailing the risk of overfitting. Its a form of feature
+selection. Computational Efficiency — Reducing dimensionality means fewer operations, rendering the result more computationally efficient.
+
+Fix underfitting: Train the model for more epochs to allow it sufficient time to learn the data patterns.
