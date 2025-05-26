@@ -23,6 +23,7 @@ Good value of K:
 - to break a tie, decrease K by 1 until the tie is broken
 - put more weights for the nearest points than the farther points
 - dun be too large or small
+- odd no.
 
 KNN can be accelerated via
 1. efficient data structures, e.g. KD Trees
